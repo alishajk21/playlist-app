@@ -1,0 +1,253 @@
+body {
+  margin: 0;
+  color: white;
+  overflow: hidden;
+  font-family: "Delius Unicase", cursive;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  background: radial-gradient(circle at 30% 30%, #1a2a6c, #0f2027 60%, #000);
+}
+
+@keyframes swirl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #8ec5ff;
+}
+.song-message {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #ffd76a;
+  min-height: 24px;
+  transition: opacity 0.4s ease;
+}
+.fade-out {
+  opacity: 0;
+}
+.cassette {
+  position: relative;
+  width: 280px;
+  max-width: 90%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cassette:hover {
+  transform: scale(1.05);
+}
+
+.cassette img {
+  width: 100%;
+}
+
+.playing {
+  filter: drop-shadow(0 0 25px #4da6ff);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Controls */
+.controls button {
+  margin-top: 20px;
+  background: #1e3c72;
+  border: none;
+  padding: 10px 18px;
+  color: black;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.controls button:hover {
+  background: #2a5298;
+}
+
+/* Personal note modal */
+.note-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 30, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.note-card {
+  background: #102542;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 320px;
+  box-shadow: 0 0 30px rgba(100, 150, 255, 0.6);
+}
+
+.note-card h2 {
+  color: #8ec5ff;
+}
+
+.note-card button {
+  background: #4da6ff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+/* Starry dots */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 200, 0.6) 1px,
+    transparent 1px
+  );
+  background-size: 60px 60px;
+  animation: swirl 120s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes swirl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Shooting star */
+@keyframes shooting {
+  0% {
+    transform: translateX(-100px) translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(600px) translateY(200px);
+    opacity: 0;
+  }
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 20%;
+  left: -100px;
+  width: 3px;
+  height: 3px;
+  background: white;
+  box-shadow: 0 0 15px white;
+  animation: shooting 6s linear infinite;
+}
+
+/* Layout */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  color: #8ec5ff;
+  margin-bottom: 20px;
+}
+
+.cassette {
+  position: relative;
+  width: 280px;
+  max-width: 90%;
+}
+
+.cassette img {
+  width: 100%;
+}
+
+.playing {
+  filter: drop-shadow(0 0 25px #4da6ff);
+}
+
+.left {
+  left: 65px;
+}
+.right {
+  right: 65px;
+}
+
+.playing .reel {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.control-item {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls button {
+  font-size: 22px;
+  margin: 0 10px;
+  background: #1e3c72;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.controls button:hover {
+  background: #2a5298;
+}
